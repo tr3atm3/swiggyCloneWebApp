@@ -1,0 +1,30 @@
+{
+  "name": "swiggyclone",
+  "version": "1.0.0",
+  "description": "Swiggy Clone Web app Project",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tr3atm3/swiggyCloneWebApp.git"
+  },
+  "keywords": [],
+  "author": "Tushar Sharma",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tr3atm3/swiggyCloneWebApp/issues"
+  },
+  "homepage": "https://github.com/tr3atm3/swiggyCloneWebApp#readme",
+  "devDependencies": {
+    "parcel": "^2.12.0",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "browserslist": [
+    "last 2 versions"
+  ]
+}
