@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "Swiggy Clone Web app Project",
   "scripts": {
+    "start": "parcel Index.html",
+    "build": "parcel build Index.html",
     "test": "jest"
   },
   "repository": {
