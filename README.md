@@ -21,3 +21,10 @@
 - hosting server on HTTPs
 - Tree Shaking - remove unused code for us
 - Different dev and production bundles
+
+# Project Overview
+
+- Configured this project using parcel as a Bundler, tailwind for CSS, React to Create UI, react Router@6 to navigate in the project.
+- Retrieving real time Data from swiggy api to populate the project
+- Shimmer is used for user experience, before the data arrives.
+-
