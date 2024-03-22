@@ -15,10 +15,23 @@ const RestaurantCard = ({ resData }) => {
         <h3>⭐{avgRating}</h3>
         <h3 className="eta">{sla.slaString} mins</h3>
       </div>
-      <p>{cuisines.join(", ")}</p>
-      <p>{costForTwo}</p>
+      <div className="res-card-p">
+        <p>{cuisines.join(", ")}</p>
+        <p>{costForTwo}</p>
+      </div>
     </div>
   );
+};
+
+export const withPromoted = (RestaurantCard) => {
+  return ({ resData }) => {
+    return (
+      <div>
+        <label style={{ color: "black" }}>Promoted</label>
+        <RestaurantCard resData={resData} />
+      </div>
+    );
+  };
 };
 
 export default RestaurantCard;

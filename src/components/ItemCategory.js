@@ -1,16 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
 import ItemCard from "./ItemCard";
-const ItemCategory = ({ itemCategory }) => {
-  const [toggleItemCards, setToggleItemCards] = useState(false);
+import { SlArrowDown, SlArrowUp } from "react-icons/sl";
+const ItemCategory = ({ itemCategory, toggleItemCards, handleToggle }) => {
   let { title, itemCards = [] } = itemCategory.card.card;
+
   const handleHeaderClick = () => {
-    setToggleItemCards((prev) => !prev);
+    // setToggleItemCards((prev) => !prev);
+    handleToggle(title);
   };
   return (
     <div>
-      <h2 className="itemHeader" onClick={handleHeaderClick}>
-        {title} ({itemCards.length})
-      </h2>
+      <div className="itemHeader" onClick={handleHeaderClick}>
+        <h2 className="" onClick={handleHeaderClick}>
+          {title} ({itemCards.length})
+        </h2>
+        {toggleItemCards ? <SlArrowUp /> : <SlArrowDown />}
+      </div>
       {toggleItemCards && (
         <div>
           {itemCards.length > 0 &&

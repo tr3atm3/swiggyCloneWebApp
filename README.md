@@ -24,7 +24,10 @@
 
 # Project Overview
 
-- Configured this project using parcel as a Bundler, tailwind for CSS, React to Create UI, react Router@6 to navigate in the project.
+- Configured this project using parcel as a Bundler, React to Create UI, Vanilla CSS, react Router@6 to navigate in the project, Redux is used for State management.
 - Retrieving real time Data from swiggy api to populate the project
 - Shimmer is used for user experience, before the data arrives.
--
+- About.js page gets info from gitHub Rest api and the component is build using Class Components.
+- Creating own custom hooks to make modules more readable.
+- lazy loading is also used on About.js page for dynamic chunking of the files.
+- status of internet connection is also added for secure connection between user and webApp.

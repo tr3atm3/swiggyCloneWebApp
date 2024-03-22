@@ -1,12 +1,16 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { withPromoted } from "./RestaurantCard";
 
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [filteredListOfRestaurant, setFilteredListOfRestaurants] = useState([]);
+
+  const RestaurantPromotedCard = withPromoted(RestaurantCard);
+  console.log(listOfRestaurants);
 
   useEffect(() => {
     fetchData();
@@ -25,6 +29,16 @@ const Body = () => {
       response.data.cards[4].card.card.gridElements.infoWithStyle.restaurants
     );
   };
+
+  const onlineStatus = useOnlineStatus();
+
+  if (!onlineStatus) {
+    return (
+      <h1>
+        Looks like you are offline!! Please check your internet connection
+      </h1>
+    );
+  }
 
   return listOfRestaurants.length === 0 ? (
     <Shimmer />
@@ -58,18 +72,28 @@ const Body = () => {
         <button
           className="filter-btn"
           onClick={() => {
-            setListOfRestaurants((list) =>
-              list.filter((item) => parseFloat(item.info.avgRating) > 4.5)
-            );
+            if (filteredListOfRestaurant.length === listOfRestaurants.length) {
+              setFilteredListOfRestaurants((list) =>
+                list.filter((item) => parseFloat(item.info.avgRating) >= 4.4)
+              );
+            } else {
+              setFilteredListOfRestaurants(listOfRestaurants);
+            }
           }}
         >
-          Top Rated Restaurants
+          {filteredListOfRestaurant.length === listOfRestaurants.length
+            ? "Top Rated Restaurants"
+            : "All Restaurants"}
         </button>
       </div>
       <div className="res-container">
         {filteredListOfRestaurant.map((resData) => (
           <Link to={"/restaurants/" + resData.info.id} key={resData.info.id}>
-            <RestaurantCard resData={resData.info} />
+            {resData.info.promoted ? (
+              <RestaurantPromotedCard resData={resData.info} />
+            ) : (
+              <RestaurantCard resData={resData.info} />
+            )}
           </Link>
         ))}
       </div>
