@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "Swiggy Clone Web app Project",
   "scripts": {
-    "start": "parcel Index.html",
-    "build": "parcel build Index.html",
-    "test": "jest"
+    "start": "parcel index.html",
+    "build": " parcel build ./index.html --public-url ./",
+    "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -34,6 +35,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.2",
+    "firebase": "^10.9.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.0.1",
