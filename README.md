@@ -31,3 +31,23 @@
 - Creating own custom hooks to make modules more readable.
 - lazy loading is also used on About.js page for dynamic chunking of the files.
 - status of internet connection is also added for secure connection between user and webApp.
+- Testing the App using react testing library,jest and JsDOM
+
+# Types of testing
+
+- Unit Testing
+- Integration testing
+- End to End Testign - e2e testing
+
+# Setting up testing in the app
+
+- Install react Testing Library
+- Install jest
+- install babel dependencies
+- Configure babel
+- Configure Parcel config file to disable default babel transpilation, parcel will then ignore this config and override the default parcel config for JS.
+- Jest Configuration (npx jest --init)
+- install jsDom library
+- Install @babel/preset-react to test jsx in the jsDom
+- Include @babel/preset-react to the babel config
+- install @testing-library/jest-dom

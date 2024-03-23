@@ -5,9 +5,8 @@ import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
 import { useSelector } from "react-redux";
 const Header = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const onlineStatus = useOnlineStatus();
-  const { loggedInUser } = useContext(UserContext);
+
   const cartItems = useSelector((store) => store.cart.items).reduce(
     (acc, cur) => cur.quantity + acc,
     0
@@ -35,15 +34,9 @@ const Header = () => {
           <li>
             <Link to="/cart">🛒Cart({cartItems})</Link>
           </li>
-          <button
-            className="login-btn"
-            onClick={() => {
-              setIsLoggedIn((prev) => !prev);
-            }}
-          >
-            {isLoggedIn ? "Logout" : "Login"}
-          </button>
-          {isLoggedIn && <li className="user-name">{loggedInUser}</li>}
+          <Link to="/login">
+            <button className="login-btn">Login</button>
+          </Link>
         </ul>
       </div>
     </div>

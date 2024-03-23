@@ -34,15 +34,13 @@ const Body = () => {
 
   if (!onlineStatus) {
     return (
-      <h1>
+      <h1 style={{ margin: "10rem" }}>
         Looks like you are offline!! Please check your internet connection
       </h1>
     );
   }
 
-  return listOfRestaurants.length === 0 ? (
-    <Shimmer />
-  ) : (
+  return (
     <div className="body">
       <div className="filter">
         <div className="search">
@@ -86,17 +84,21 @@ const Body = () => {
             : "All Restaurants"}
         </button>
       </div>
-      <div className="res-container">
-        {filteredListOfRestaurant.map((resData) => (
-          <Link to={"/restaurants/" + resData.info.id} key={resData.info.id}>
-            {resData.info.promoted ? (
-              <RestaurantPromotedCard resData={resData.info} />
-            ) : (
-              <RestaurantCard resData={resData.info} />
-            )}
-          </Link>
-        ))}
-      </div>
+      {listOfRestaurants.length === 0 ? (
+        <Shimmer />
+      ) : (
+        <div className="res-container">
+          {filteredListOfRestaurant.map((resData) => (
+            <Link to={"/restaurants/" + resData.info.id} key={resData.info.id}>
+              {resData.info.promoted ? (
+                <RestaurantPromotedCard resData={resData.info} />
+              ) : (
+                <RestaurantCard resData={resData.info} />
+              )}
+            </Link>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
